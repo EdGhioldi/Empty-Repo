@@ -1,13 +1,17 @@
 package domain;
 
 public class Persona {
-    private int idPersona;
+    private int id_persona;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
 
     public Persona() {
+    }
+
+    public Persona(int id_persona){
+        this.id_persona  = id_persona;
     }
 
     public Persona(String nombre, String apellido, String email, String telefono) {
@@ -17,20 +21,20 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public Persona(int idPersona, String nombre, String apellido, String email, String telefono) {
-        this.idPersona = idPersona;
+    public Persona(int id_persona, String nombre, String apellido, String email, String telefono) {
+        this.id_persona = id_persona;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
     }
 
-    public int getIdPersona() {
-        return idPersona;
+    public int getId_persona() {
+        return id_persona;
     }
 
-    public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
     }
 
     public String getNombre() {
@@ -68,11 +72,12 @@ public class Persona {
     @Override
     public String toString() {
         return "Persona{" +
-                "idPersona=" + idPersona +
+                "id_persona=" + id_persona +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", email='" + email + '\'' +
                 ", telefono='" + telefono + '\'' +
                 '}';
     }
+
 }
