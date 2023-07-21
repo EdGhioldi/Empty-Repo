@@ -1,34 +1,38 @@
 package test;
 
-import datos.PersonaDAO;
-import domain.Persona;
-
+import datos.*;
+import domain.PersonaDTO;
+import java.sql.*;
 import java.util.List;
 
 public class TestManejoPersonas {
     public static void main(String[] args) {
-        PersonaDAO personaDao = new PersonaDAO();
-/*
-        //INSERTAR UN NUEVO OBJETO DE TIPO PERSONA
-        Persona personaNueva = new Persona("Carlos","Esparza","cesparza@mail.com","341328753");
-        personaDao.insertar(personaNueva);
+        Connection conexion = null;
 
+        try {
+            conexion = Conexion.getConnection();
+            if(conexion.getAutoCommit()){
+                conexion.setAutoCommit(false);
+            }
+            IPersonaDao personaDao = new PersonaDAO();
 
-        Persona personaModificada = new Persona(4, "Juani","Garcia","juani@mail.com","351563532");
-        personaDao.update(personaModificada);
- */
-        Persona personaEliminada = new Persona(4);
-        personaDao.delete(personaEliminada);
+            List<PersonaDTO> personas = personaDao.select();
+            for(PersonaDTO persona:personas){
+                System.out.println("PersonaDTO = " + persona);
+            }
 
+            conexion.commit();
+            System.out.println("Commit Exitoso");
 
-        Persona personaNueva = new Persona("Carlos","Esparza","cesparza@mail.com","341328753");
-        personaDao.insertar(personaNueva);
-
-        List<Persona> personas = personaDao.seleccionar();
-        for(Persona persona:personas){
-            System.out.println("persona = " + persona);
-        };
-
+        } catch (SQLException ex) {
+           ex.printStackTrace(System.out);
+            System.out.println("    Entramos al ROLLBACK");
+            try {
+                conexion.rollback();
+            } catch (SQLException ex1) {
+                ex1.printStackTrace(System.out);
+            }
+        }
 
     }
 

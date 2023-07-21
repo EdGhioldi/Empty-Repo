@@ -1,27 +1,27 @@
 package domain;
 
-public class Persona {
+public class PersonaDTO {
     private int id_persona;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
 
-    public Persona() {
+    public PersonaDTO() {
     }
 
-    public Persona(int id_persona){
+    public PersonaDTO(int id_persona){
         this.id_persona  = id_persona;
     }
 
-    public Persona(String nombre, String apellido, String email, String telefono) {
+    public PersonaDTO(String nombre, String apellido, String email, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
     }
 
-    public Persona(int id_persona, String nombre, String apellido, String email, String telefono) {
+    public PersonaDTO(int id_persona, String nombre, String apellido, String email, String telefono) {
         this.id_persona = id_persona;
         this.nombre = nombre;
         this.apellido = apellido;
