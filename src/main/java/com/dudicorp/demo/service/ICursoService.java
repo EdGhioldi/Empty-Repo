@@ -1,20 +1,30 @@
 package com.dudicorp.demo.service;
 
+import com.dudicorp.demo.dto.CursoTemaDTO;
 import com.dudicorp.demo.model.Curso;
-import java.util.Date;
 import java.util.List;
 
+
 public interface ICursoService {
-    public List<Curso> getCurso();
+
+
+    public List<Curso> getCursos();
+
+
     public void saveCurso(Curso curso);
 
-    public void deleteCurso(Long id_cur);
 
-    public Curso findCurso(Long id_curso);
+    public void deleteCurso(Long id);
 
-    public void editCurso(Long id_curso,
-                          String nuevoNombre,
-                          String nuevaModalidad,
-                          Date nuevaFecha);
-    public void editCurso(Curso cur);
+
+    public Curso findCurso(Long id);
+
+    public void editCurso(Curso curso);
+
+    public CursoTemaDTO temasPorCurso(Long id_curso);
+
+    public List<Curso> getCursosJava();
+
+
+
 }

@@ -1,32 +1,32 @@
 package com.dudicorp.demo.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.List;
-
+@Getter @Setter
 @Entity
-@Getter
-@Setter
 public class Curso {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_curso;
     private String nombre;
     private String modalidad;
-    private Date fecha_finalizacion;
-    @OneToMany
-    private List<Tema> temaDelCurso;
+    private String fecha_finalizacion;
+    @OneToMany(mappedBy="curso")
+    private List<Tema> listaTemas;
 
-    public Curso(){};
+    public Curso() {
+    }
 
-    public Curso(Long id_curso, String nombre, String modalidad, Date fecha_finalizacion, List<Tema> temaDelCurso) {
+    public Curso(Long id_curso, String nombre, String modalidad, String fecha_finalizacion, List<Tema> listaTemas) {
         this.id_curso = id_curso;
         this.nombre = nombre;
         this.modalidad = modalidad;
         this.fecha_finalizacion = fecha_finalizacion;
-        this.temaDelCurso = temaDelCurso;
+        this.listaTemas = listaTemas;
     }
 }

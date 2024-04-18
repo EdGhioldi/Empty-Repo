@@ -5,17 +5,19 @@ import com.dudicorp.demo.model.Tema;
 import java.util.List;
 
 public interface ITemaService {
-    public List<Tema> getTema();
 
-    public void saveTema(Tema tem);
 
-    public void deleteTema(Long id_tema);
+    public List<Tema> getTemas();
 
-    public Tema findTema(Long id_tema);
 
-    public void editTema(Long id_tema,
-                         String nombreNuevo,
-                         String descripcionNueva);
+    public void saveTema(Tema tema);
 
-    public void editTema(Tema tem);
+
+    public void deleteTema(Long id);
+
+
+    public Tema findTema(Long id);
+
+    public void editTema(Tema tema);
+
 }
